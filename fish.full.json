@@ -12,7 +12,22 @@
     "teal_blue": "#33658A",
     "blue": "#007ACC",
     "white": "#FFFFFF",
-    "gray": "#383838"
+    "gray": "#383838",
+
+    "user": "#383838",
+    "path": "#33658A"
+  },
+
+  "palettes": {
+    "template": "{{ if eq .HostName \"PC1\" }}plum{{ else if eq .HostName \"arch-qotom\" }}blue{{ end }}",
+    "list": {
+        "plum": {
+            "path": "#9A348E"
+        },  
+        "blue": {
+            "path": "#007ACC"
+        }
+    }
   },
 
   "blocks": [
@@ -22,10 +37,10 @@
       "segments": [
         {
           "leading_diamond": "\ue0b6",
-          "template-old": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ abbrev 6 .HostName }}",
+          "template_old": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ abbrev 6 .HostName }}",
           "template": " {{ .UserName }} ",
           "foreground": "p:white",
-          "background": "p:gray",
+          "background": "p:user",
           "type": "session",
           "style": "diamond"
         },
@@ -36,7 +51,7 @@
           },
           "template": " {{ .Path }} ",
           "foreground": "p:white",
-          "background": "p:teal_blue",
+          "background": "p:path",
           "type": "path",
           "powerline_symbol": "\ue0b0",
           "style": "powerline"  
@@ -44,7 +59,7 @@
         {
           "template": "<#ffffff>\ue0b1</> {{ .HEAD }} ",
           "foreground": "p:white",
-          "background": "p:teal_blue",
+          "background": "p:path",
           "type": "git",
           "powerline_symbol": "\ue0b0",
           "style": "powerline"
